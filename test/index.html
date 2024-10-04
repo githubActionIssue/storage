@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Storage: Tests</title>
+</head>
+<body>
+
+<main>
+<h1>Storage: Tests</h1>
+
+<h3><a href="https://github.com/byojs/storage">Github</a></h3>
+
+<hr>
+
+<p>
+	<strong>Note:</strong> these tests include the <a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_API/Origin_private_file_system" target="_blank">Origin Private File System (OPFS) adapter</a>, which is only currently supported on Chrome/Firefox; those specific tests will fail in other browsers. However, the OPFS-Worker adapter (which uses a Web Worker) <em>should</em> work on most modern browsers (desktop and mobile).
+</p>
+
+<p>
+	<button type="button" id="run-tests-btn">run tests</button>
+</p>
+
+<div id="test-results"></div>
+
+</main>
+
+<!-------------------------->
+
+<script type="importmap">
+{
+	"imports": {
+		"storage/src/idb": "./src/adapter.idb.js",
+		"storage/src/local-storage": "./src/adapter.local-storage.js",
+		"storage/src/session-storage": "./src/adapter.session-storage.js",
+		"storage/src/cookie": "./src/adapter.cookie.js",
+		"storage/src/opfs": "./src/adapter.opfs.js",
+		"storage/src/opfs-worker": "./src/adapter.opfs-worker.js",
+
+		"storage/dist/idb": "./dist/adapter.idb.mjs",
+		"storage/dist/local-storage": "./dist/adapter.local-storage.mjs",
+		"storage/dist/session-storage": "./dist/adapter.session-storage.mjs",
+		"storage/dist/cookie": "./dist/adapter.cookie.mjs",
+		"storage/dist/opfs": "./dist/adapter.opfs.mjs",
+		"storage/dist/opfs-worker": "./dist/adapter.opfs-worker.mjs",
+
+		"idb-keyval": "./dist/external/idb-keyval.js"
+	}
+}
+</script>
+<script type="module" src="./test.js"></script>
+
+</body>
+</html>

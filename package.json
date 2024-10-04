@@ -1,0 +1,52 @@
+{
+	"name": "@byojs/storage",
+	"description": "Simple key-value storage API backed by various client storage mechanisms",
+	"version": "0.11.1",
+	"exports": {
+		"./idb": "./dist/adapter.idb.mjs",
+		"./local-storage": "./dist/adapter.local-storage.mjs",
+		"./session-storage": "./dist/adapter.session-storage.mjs",
+		"./cookie": "./dist/adapter.cookie.mjs",
+		"./opfs": "./dist/adapter.opfs.mjs",
+		"./opfs-worker": "./dist/adapter.opfs-worker.mjs"
+	},
+	"browser": {
+		"@byojs/storage/idb": "./dist/adapter.idb.mjs",
+		"@byojs/storage/local-storage": "./dist/adapter.local-storage.mjs",
+		"@byojs/storage/session-storage": "./dist/adapter.session-storage.mjs",
+		"@byojs/storage/cookie": "./dist/adapter.cookie.mjs",
+		"@byojs/storage/opfs": "./dist/adapter.opfs.mjs",
+		"@byojs/storage/opfs-worker": "./dist/adapter.opfs-worker.mjs"
+	},
+	"scripts": {
+		"build:all": "node scripts/build-all.js",
+		"build:gh-pages": "npm run build:all && node scripts/build-gh-pages.js",
+		"build": "npm run build:all",
+		"test:start": "npx http-server test/ -p 8080",
+		"test": "npm run test:start",
+		"postinstall": "node scripts/postinstall.js",
+		"prepublishOnly": "npm run build:all"
+	},
+	"dependencies": {
+		"idb-keyval": "~6.2.1"
+	},
+	"devDependencies": {
+		"micromatch": "~4.0.5",
+		"recursive-readdir-sync": "~1.0.6",
+		"terser": "~5.29.2"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/byojs/storage.git"
+	},
+	"keywords": [
+		"storage"
+	],
+	"bugs": {
+		"url": "https://github.com/byojs/storage/issues",
+		"email": "getify@gmail.com"
+	},
+	"homepage": "https://github.com/byojs/storage",
+	"author": "Kyle Simpson <getify@gmail.com>",
+	"license": "MIT"
+}
